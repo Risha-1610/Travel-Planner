@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WanderLust | Ultimate Travel Planner</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dark-theme"> <div id="emoji-container"></div>
+
+    <div id="notification-container"></div>
+
+    <nav class="navbar">
+        <div class="logo"><i class="fa-solid fa-compass fa-spin"></i> Wander<span>Lust</span></div>
+        <div class="nav-right">
+            <button id="theme-toggle" class="btn-icon"><i class="fa-solid fa-sun"></i></button>
+            <button id="cart-btn" class="btn-nav"><i class="fa-solid fa-cart-shopping"></i> Cart (<span id="cart-count">0</span>)</button>
+            <button id="logout-btn" class="btn-nav hide"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+        </div>
+    </nav>
+
+    <div id="auth-screen" class="auth-container">
+        <div class="auth-box">
+            <div class="auth-tabs">
+                <button id="tab-login" class="auth-tab active">Log In</button>
+                <button id="tab-signup" class="auth-tab">Sign Up</button>
+            </div>
+
+            <form id="login-form" class="auth-form">
+                <h2>Welcome Back!</h2>
+                <div class="input-group">
+                    <input type="text" id="login-id" required placeholder="Phone Number or Email ID">
+                </div>
+                <div class="input-group">
+                    <input type="password" id="login-pass" required placeholder="Enter Password">
+                </div>
+                <button type="submit" class="btn-main">Explore the World <i class="fa-solid fa-arrow-right"></i></button>
+            </form>
+
+            <form id="signup-form" class="auth-form hide">
+                <h2>Create Your Account</h2>
+                <div class="input-group"><input type="text" id="sign-name" required placeholder="Full Name"></div>
+                <div class="input-group"><input type="tel" id="sign-mobile" required placeholder="Mobile Number"></div>
+                <div class="input-group"><input type="email" id="sign-email" required placeholder="Email ID"></div>
+                <div class="input-group"><input type="password" id="sign-pass" required placeholder="Create Password"></div>
+                <div class="input-group"><input type="password" id="sign-repass" required placeholder="Recheck Password"></div>
+                <button type="submit" class="btn-main">Join the Adventure <i class="fa-solid fa-user-plus"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <main id="homepage-screen" class="main-content hide">
+        
+        <header class="hero-banner">
+            <div class="hero-text">
+                <h1>✨ Special Recommendation ✨</h1>
+                <h2>Experience Magic in Paris, France</h2>
+                <p><i class="fa-solid fa-utensils text-red"></i> <strong>Best Food Spot:</strong> Try the legendary croissants at <em>Du Pain et des Idées</em>!</p>
+                <button class="btn-secondary" onclick="quickSelectParis()">Book Recommended Paris Package</button>
+            </div>
+        </header>
+
+        <section class="control-panel">
+            <div class="search-box">
+                <label for="destination-select"><i class="fa-solid fa-map-location-dot"></i> Choose Destination:</label>
+                <select id="destination-select">
+                    <option value="paris">🗼 Paris, France</option>
+                    <option value="tokyo">🗻 Tokyo, Japan</option>
+                    <option value="bali">🏖️ Bali, Indonesia</option>
+                </select>
+            </div>
+            <div class="sort-box">
+                <label for="price-sort"><i class="fa-solid fa-arrow-up-wide-short"></i> Sort Prices:</label>
+                <select id="price-sort">
+                    <option value="low-high">Cheapest to Expensive</option>
+                    <option value="high-low">Expensive to Cheapest</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="booking-grid">
+            <div class="booking-card animate-card">
+                <h3><i class="fa-solid fa-plane-departure text-blue"></i> Transport Options</h3>
+                <div id="transport-list" class="item-list"></div>
+            </div>
+
+            <div class="booking-card animate-card">
+                <h3><i class="fa-solid fa-hotel text-green"></i> Luxury Hotels</h3>
+                <div id="hotel-list" class="item-list"></div>
+            </div>
+
+            <div class="booking-card animate-card">
+                <h3><i class="fa-solid fa-camera text-red"></i> Must-Visit Attractions</h3>
+                <div id="attractions-list" class="item-list"></div>
+            </div>
+        </section>
+    </main>
+
+    <div id="cart-modal" class="modal hide">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2><i class="fa-solid fa-cart-shopping"></i> Your Selected Itinerary</h2>
+            <div id="cart-items-container">
+                </div>
+            <div class="cart-summary">
+                <p>Total Items: <span id="modal-item-count" class="badge">0</span></p>
+                <h3>Estimated Total Price: <span id="modal-total-price" class="text-green">$0</span></h3>
+                <button class="btn-main" id="checkout-btn">Proceed to Checkout <i class="fa-solid fa-credit-card"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
